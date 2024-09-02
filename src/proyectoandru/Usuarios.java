@@ -18,8 +18,13 @@ public class Usuarios {
     private String genero;
     private int edad;
     private boolean activo;
+    followers h;
 
     //this.fechaIngreso = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+    public Usuarios()
+  {
+      h = new followers();
+  }
     public Usuarios(String nombreUsuario,String nick, String contraseña, String genero/*int edad*/ ) {
         this.nombreUsuario = nombreUsuario;
         this.nick= nick;
@@ -27,6 +32,7 @@ public class Usuarios {
         this.genero = genero;
         //this.edad = edad;
         this.activo = true;
+         h = new followers();
     }
     
 
@@ -52,7 +58,9 @@ public class Usuarios {
         return activo;
     }
     
-    
+    void AgregarFollower(String user){
+        h.AgregarFollower(user);
+    }
     
     
 }

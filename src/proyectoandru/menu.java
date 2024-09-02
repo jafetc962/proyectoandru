@@ -13,9 +13,19 @@ public class menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+    Usuarios h = new Usuarios();
     public menu() {
         initComponents();
+         h.AgregarFollower("David");
+        h.AgregarFollower("Jafet");
+        h.AgregarFollower("David");
+        System.out.println(h.h.listarFollowers());
     }
+     
+    
+       
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
