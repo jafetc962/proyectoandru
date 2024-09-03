@@ -25,7 +25,7 @@ public class GestorUsuarios {
     public void agregarUsuario(Usuarios usuario) {
         if (contador == usuarios.length) {
             
-            Usuarios[] nuevoArreglo = new Usuarios[usuarios.length * 2];
+            Usuarios[] nuevoArreglo = new Usuarios[usuarios.length + 1];
             for(int i = 0; i < usuarios.length; i++) {
                 nuevoArreglo[i] = usuarios[i];
             }
@@ -37,9 +37,11 @@ public class GestorUsuarios {
     
      public void AddUsuario(String user, String nick, String contra, String gen) {
         Usuarios nuevapersona = new Usuarios(user, nick, contra, gen);
+        
         for(int j=0; j<usuarios.length;j++){
             if(usuarios[j]==null){
                 usuarios[j]=nuevapersona;
+                break;
             }
         }
         
@@ -56,31 +58,30 @@ public class GestorUsuarios {
         }
     }
     
-    public boolean buscar(String username){
+    
+    
+    
+    public String verificarUsuario(String username, String contra) {
         if (usuarios == null) {
-        return false;
-    }
-        for(int pos=0;pos<usuarios.length;pos++){
-            if(usuarios[pos].getNick().equalsIgnoreCase(username)){
-                return true;
-              }
-        
-       }
-       return true;
-    }
-    
-    
-    public boolean checkUser(String username, String contra) {
+            return null;
+        }
+        for (int pos = 0; pos < usuarios.length; pos++) {
+            if (usuarios[pos] != null) {
+                if (usuarios[pos].getNick().equalsIgnoreCase(username)) {
 
-    for (int pos = 0; pos < usuarios.length; pos++) {
-        if (usuarios[pos] != null && usuarios[pos].getNick().equalsIgnoreCase(username)) {
-                        if (usuarios[pos].getContraseña().equals(contra)) {
-                return true;
+                    if (usuarios[pos].getContraseña().equals(contra)) {
+                        return contra;
+                    } else {
+                        return username;
+                    }
+
+                }
             }
         }
+        return null;
     }
-
-    return false;  
-}
+    
+    
+    
     
 }

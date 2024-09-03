@@ -134,15 +134,15 @@ public class ENTRAR extends javax.swing.JFrame {
      String contra=contrasena.getText();
      GestorUsuarios gu=new GestorUsuarios();
      
-     if(gu.buscar(apodo)==true){
-        if(gu.checkUser(apodo,contra)==true){
-             JOptionPane.showMessageDialog(null,"Bienvenido a X @"+apodo);
+     if(gu.verificarUsuario(apodo,contra).equalsIgnoreCase(contra) || gu.verificarUsuario(apodo,contra).equalsIgnoreCase(apodo)){
+        if(gu.verificarUsuario(apodo,contra).equalsIgnoreCase(contra)){
+             JOptionPane.showMessageDialog(null,"Te has logeado en X @"+apodo);
              
-             Inicio in=new Inicio();
-             in.setVisible(true);
+             Inicio a=new Inicio();
+             a.setVisible(true);
              this.dispose();
              
-        }else if(gu.checkUser(apodo,contra)==false){
+        }else if(gu.verificarUsuario(apodo,contra).equalsIgnoreCase(apodo)){
          JOptionPane.showMessageDialog(null,"Contraseña incorrecta, intente de nuevo!");   
         }
      
