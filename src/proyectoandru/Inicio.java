@@ -19,8 +19,8 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    Menu main;
-    public Inicio(Menu main) {
+    menu main;
+    public Inicio(menu main) {
         initComponents();
         this.main=main;
         

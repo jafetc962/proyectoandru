@@ -13,13 +13,10 @@ public class menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-    Usuarios h = new Usuarios();
+    GestorUsuarios gu;
     public menu() {
         initComponents();
-         h.AgregarFollower("David");
-        h.AgregarFollower("Jafet");
-        h.AgregarFollower("David");
-        System.out.println(h.h.listarFollowers());
+       gu=new GestorUsuarios();
     }
      
     
@@ -107,9 +104,7 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Login a = new Login();
-        
-    a.setVisible(true);
+    new Registro(this).setVisible(true);
     this.dispose();
 
 
@@ -117,8 +112,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-ENTRAR e = new ENTRAR();
-    e.setVisible(true);
+    new Login(this).setVisible(true);
      this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

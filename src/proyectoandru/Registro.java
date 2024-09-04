@@ -14,9 +14,9 @@ public class Registro extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    Menu main;
+    menu main;
     
-    public Registro(Menu main) {
+    public Registro(menu main) {
         initComponents();
         this.main = main;
     }
