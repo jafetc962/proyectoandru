@@ -14,7 +14,7 @@ public class GestorUsuarios {
 
     private Usuarios[] usuarios;
     private int contador;
-
+    private String apo;
     public GestorUsuarios() {
         usuarios = new Usuarios[100];
         contador = 0;
@@ -43,5 +43,11 @@ public class GestorUsuarios {
         }
         return null;
     }
-
+     public void apodo(String a){
+         this.apo=a;
+         
+     }
+     public String mostrarApodo(){
+         return apo;
+     }
 }

@@ -137,9 +137,11 @@ public class Login extends javax.swing.JFrame {
      
         if (temp!= null) {
             if (contra.equals(temp.getContraseña())) {
+                main.gu.apodo(apodo);
                 JOptionPane.showMessageDialog(null,"Logeado @"+apodo);
                 new Inicio(main).setVisible(true);
                 this.dispose();
+                
             }else{
                 JOptionPane.showMessageDialog(null,"Contra mala");
             }
