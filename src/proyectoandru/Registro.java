@@ -240,7 +240,7 @@ public class Registro extends javax.swing.JFrame {
            
            //genero
             JOptionPane.showMessageDialog(null,"Ingrese su genero!");
-       }else if(!nick.getText().equals(main.Usuarios.BuscarUsuario(nick.getText()))){
+       }else if(!nick.getText().equals(main.gu.BuscarUsuario(nick.getText()))){
        
            
             //datos ingresados correctamente
@@ -251,7 +251,7 @@ public class Registro extends javax.swing.JFrame {
             String gen = genero.getSelectedItem().toString();
 
             //AddUsuario(name, nik, pass1, gen);
-            main.Usuarios.AddUsuario(name, nik, pass1, gen);
+            main.gu.AddUsuario(name, nik, pass1, gen);
             
             //confirmacion de entrada
             JOptionPane.showMessageDialog(null, "Bienvenido a X @" + nik);

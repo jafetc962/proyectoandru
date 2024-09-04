@@ -133,7 +133,7 @@ public class Login extends javax.swing.JFrame {
      String apodo=usuarioApodo.getText();
      String contra=contrasena.getText();
      
-     Usuarios temp = main.Usuarios.BuscarUsuario(apodo);
+     Usuarios temp = main.gu.BuscarUsuario(apodo);
      
         if (temp!= null) {
             if (contra.equals(temp.getContraseña())) {

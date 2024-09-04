@@ -21,8 +21,7 @@ public class Usuarios {
     followers h;
 
     //this.fechaIngreso = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-    public Usuarios()
-  {
+    public Usuarios(){
       h = new followers();
   }
     public Usuarios(String nombreUsuario,String nick, String contraseña, String genero/*int edad*/ ) {
