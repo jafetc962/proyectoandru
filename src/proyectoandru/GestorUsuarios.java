@@ -4,84 +4,44 @@
  */
 package proyectoandru;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author andru
  */
 public class GestorUsuarios {
+
     private Usuarios[] usuarios;
     private int contador;
-    
 
     public GestorUsuarios() {
-        usuarios = new Usuarios[100]; 
+        usuarios = new Usuarios[100];
         contador = 0;
-        
+
     }
 
-    
-    
-   
-    public void agregarUsuario(Usuarios usuario) {
-        if (contador == usuarios.length) {
-            
-            Usuarios[] nuevoArreglo = new Usuarios[usuarios.length + 1];
-            for(int i = 0; i < usuarios.length; i++) {
-                nuevoArreglo[i] = usuarios[i];
-            }
-            usuarios = nuevoArreglo;
-        }
-        usuarios[contador] = usuario;
-        contador++;
-    }
-    
-     public void AddUsuario(String user, String nick, String contra, String gen) {
+    public void AddUsuario(String user, String nick, String contra, String gen) {
         Usuarios nuevapersona = new Usuarios(user, nick, contra, gen);
-        
-        for(int j=0; j<usuarios.length;j++){
-            if(usuarios[j]==null){
-                usuarios[j]=nuevapersona;
-                break;
+        if (BuscarUsuario(nick)==null) {
+            for (int j = 0; j < usuarios.length; j++) {
+                if (usuarios[j] == null) {
+                    usuarios[j] = nuevapersona;
+                    System.out.println("Se registro");
+                    return;
+                }
             }
         }
-        
-     }
-     
-    
-     
-    
-    public Usuarios getUsuario(int index) {
-        if (index >= 0 && index < contador) {
-            return usuarios[index];
-        } else {
-            return null; // O lanzar una excepción
-        }
+        JOptionPane.showMessageDialog(null,"No se registro");
     }
-    
-    
-    
-    
-    public String verificarUsuario(String username, String contra) {
-        if (usuarios == null) {
-            return null;
-        }
-        for (int pos = 0; pos < usuarios.length; pos++) {
-            if (usuarios[pos] != null) {
-                if (usuarios[pos].getNick().equalsIgnoreCase(username)) {
 
-                    if (usuarios[pos].getContraseña().equals(contra)) {
-                        return contra;
-                    } else {
-                        return username;
-                    }
-
-                }
+    public Usuarios BuscarUsuario(String Apodo) {
+        for (Usuarios usuario : usuarios) {
+            if (usuario != null && usuario.getNick().equals(Apodo)) {
+                return usuario;
             }
         }
         return null;
     }
-    
-    
-    
-    
+
 }

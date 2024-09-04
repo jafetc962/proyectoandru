@@ -50,6 +50,9 @@ public class Usuarios {
     public String getNick(){
         return this.nick;
     }
+    public int getEdad(){
+        return this.edad;
+    }
 
     /*public int getEdad() {
         return edad;
