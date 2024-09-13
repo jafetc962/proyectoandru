@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,13 +21,14 @@ import javax.swing.JOptionPane;
  *
  * @author andru
  */
-public class Login extends javax.swing.JFrame {
+public class loginfin extends javax.swing.JFrame {
 
     
      menu main;
     
-    public Login(menu main) {
+    public loginfin(menu main) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.main = main;
     }
     /**
@@ -130,25 +142,36 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_contrasenaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
      String apodo=usuarioApodo.getText();
      String contra=contrasena.getText();
      
-     Usuarios temp = main.gu.BuscarUsuario(apodo);
-     
-        if (temp!= null) {
+        Usuarios temp = main.gu.BuscarUsuario(apodo);
+
+        if (temp != null) {
             if (contra.equals(temp.getContraseña())) {
-                main.gu.apodo(apodo);
-                JOptionPane.showMessageDialog(null,"Logeado @"+apodo);
+                JOptionPane.showMessageDialog(null, "Logeado @" + apodo);
+                main.gu.SetUsuarioLogeado(temp);
                 new Inicio(main).setVisible(true);
                 this.dispose();
-                
-            }else{
-                JOptionPane.showMessageDialog(null,"Contra mala");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Contra mala");
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"No existe ");
+        } else if (temp == null && main.gu.BuscarCuentaDesactivada(apodo)!=null) {
+       
+           if (contra.equals(temp.getContraseña())){
+                JOptionPane.showMessageDialog(null, "Cuenta Activada,BIENVENIDO @" + apodo);
+                main.gu.SetUsuarioLogeado(temp);
+                new Inicio(main).setVisible(true);
+                this.dispose();
+           }else {
+                JOptionPane.showMessageDialog(null, "Contra mala");
+            }
+        }else if(temp == null) {
+            JOptionPane.showMessageDialog(null, "No existe ");
         }
-     
+         
      
      
      

@@ -14,9 +14,13 @@ public class menu extends javax.swing.JFrame {
      * Creates new form menu
      */
     GestorUsuarios gu;
+    Usuarios us;
+    GestorTweets gt;
     public menu() {
         initComponents();
        gu=new GestorUsuarios();
+       us=new Usuarios();
+       gt=new GestorTweets();
     }
      
     
@@ -112,7 +116,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    new Login(this).setVisible(true);
+    new loginfin(this).setVisible(true);
      this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

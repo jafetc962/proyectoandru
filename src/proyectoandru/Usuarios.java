@@ -4,6 +4,7 @@
  */
 package proyectoandru;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -18,21 +19,28 @@ public class Usuarios {
     private String genero;
     private int edad;
     private boolean activo;
-    followers h;
+    private LocalDateTime fecha;
+    followers fl;
+    following fling;
 
     //this.fechaIngreso = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
     public Usuarios(){
-      h = new followers();
+      fl = new followers();
+      fling = new following();
   }
-    public Usuarios(String nombreUsuario,String nick, String contraseña, String genero/*int edad*/ ) {
+    public Usuarios(String nombreUsuario,String nick, String contraseña, String genero, LocalDateTime fecha, int edad ) {
         this.nombreUsuario = nombreUsuario;
         this.nick= nick;
         this.contraseña = contraseña;
         this.genero = genero;
-        //this.edad = edad;
+        this.edad = edad;
         this.activo = true;
-         h = new followers();
+         fl = new followers();
+         fling = new following();
+         this.fecha = fecha;
     }
+
+    
     
 
     public String getNombreUsuario() {
@@ -52,6 +60,9 @@ public class Usuarios {
     public int getEdad(){
         return this.edad;
     }
+    public LocalDateTime getFecha(){
+        return this.fecha;
+    }
 
     /*public int getEdad() {
         return edad;
@@ -61,7 +72,14 @@ public class Usuarios {
     }
     
     void AgregarFollower(String user){
-        h.AgregarFollower(user);
+        fl.AgregarFollower(user);
+    }
+    void AgregarFollowing(String user){
+        fling.AgregarFollowing(user);
+    }
+
+    boolean equalsIgnoreCase(String userNick) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

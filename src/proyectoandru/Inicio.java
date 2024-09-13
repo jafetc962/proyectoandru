@@ -20,11 +20,22 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     menu main;
+    ImageIcon icono = new ImageIcon("proyectoandru/images/hombre(1).png");
+    ImageIcon icono2 = new ImageIcon("proyectoandru/images/mujer(1).png");
+
     public Inicio(menu main) {
         initComponents();
-        this.main=main;
-        
-        
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);
+        this.main = main;
+
+        arroba.setText("@" + main.gu.Logged().getNick());
+
+        if (main.gu.Logged().getGenero().equalsIgnoreCase("Masculino")) {
+            imagenh.setIcon(icono);
+        } else {
+            imagenh.setIcon(icono2);
+        }
     }
 
     /**
@@ -39,17 +50,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         search = new javax.swing.JTextField();
         botonsearch = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        imagenh = new javax.swing.JLabel();
         publicacion = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ttt = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
+        perfil = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
+        arroba = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +81,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hombre (1).png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        imagenh.setBackground(new java.awt.Color(204, 204, 204));
+        imagenh.setForeground(new java.awt.Color(255, 255, 255));
+        imagenh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hombre (1).png"))); // NOI18N
+        imagenh.setText("jLabel2");
 
         publicacion.setBackground(new java.awt.Color(0, 0, 51));
         publicacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,10 +112,15 @@ public class Inicio extends javax.swing.JFrame {
         ttt.setRows(5);
         jScrollPane1.setViewportView(ttt);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 51));
-        jButton2.setForeground(new java.awt.Color(0, 204, 255));
-        jButton2.setText("PERFIL");
-        jButton2.setBorder(null);
+        perfil.setBackground(new java.awt.Color(0, 0, 51));
+        perfil.setForeground(new java.awt.Color(0, 204, 255));
+        perfil.setText("PERFIL");
+        perfil.setBorder(null);
+        perfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                perfilMouseClicked(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(0, 0, 51));
         jButton3.setForeground(new java.awt.Color(0, 204, 255));
@@ -115,12 +131,22 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 51));
-        jButton4.setForeground(new java.awt.Color(0, 153, 204));
-        jButton4.setText("Salir");
+        salir.setBackground(new java.awt.Color(0, 0, 51));
+        salir.setForeground(new java.awt.Color(0, 153, 204));
+        salir.setText("Salir");
+        salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirMouseClicked(evt);
+            }
+        });
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("@");
+        arroba.setForeground(new java.awt.Color(255, 255, 255));
+        arroba.setText("@");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,14 +159,14 @@ public class Inicio extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(jButton4))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(salir))
+                            .addComponent(imagenh, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(perfil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(arroba, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -179,15 +205,15 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(0, 114, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imagenh, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(arroba, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(salir)
                         .addGap(15, 15, 15))))
         );
 
@@ -206,65 +232,72 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_searchActionPerformed
 
     private void botonsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsearchActionPerformed
-    String tweet = publicacion.getText();
-    
-  
-
-
+        String tweet = publicacion.getText();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_botonsearchActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String p = publicacion.getText();
-String t = ttt.getText();
+        String p = publicacion.getText();
+        String t = ttt.getText();
 
-if(p.length()<=140){
-    
-ttt.setText(main.gu.BuscarUsuario(main.gu.mostrarApodo())+" "+p+"\n"+t);
-publicacion.setText("Que estas pensando...");
-}
-else{
-    JOptionPane.showMessageDialog(null,"Solo se permiten 140 caracteres, cantidad actual:"+p.length());
-}
+        if (p.length() <= 140) {
+            String apodo = main.gu.Logged().getNick();
+            ttt.setText(main.gu.Logged().getNick() + " " + p + "\n" + t);
+            publicacion.setText("Que estas pensando...");
+        } else {
+            JOptionPane.showMessageDialog(null, "Solo se permiten 140 caracteres, cantidad actual:" + p.length());
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void publicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_publicacionMouseClicked
-String p= publicacion.getText();
-        if(p.equalsIgnoreCase("Que estas pensando...?"))
-        publicacion.setText("");        // TODO add your handling code here:
+        String p = publicacion.getText();
+        if (p.equalsIgnoreCase("Que estas pensando...?"))
+            publicacion.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_publicacionMouseClicked
 
     private void publicacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_publicacionMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_publicacionMouseExited
 
+    private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
+        String apodo = main.gu.Logged().getNick();
+        JOptionPane.showMessageDialog(null, "Sesion Cerrada @" + apodo);
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salirMouseClicked
+
+    private void perfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perfilMouseClicked
+        new Perfil(main).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_perfilMouseClicked
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salirActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
-  
-     
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel arroba;
     private javax.swing.JButton botonsearch;
+    private javax.swing.JLabel imagenh;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton perfil;
     private javax.swing.JTextField publicacion;
+    private javax.swing.JButton salir;
     private javax.swing.JTextField search;
     private javax.swing.JTextArea ttt;
     // End of variables declaration//GEN-END:variables

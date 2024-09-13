@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto20242;
+package proyectoandru;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,13 +21,27 @@ public class GestorTweets {
         contador = 0;
     }
     
-     public void agregarTweet(tweets nuevoTweet) {
-        // Si el arreglo está lleno, lo redimensionamos
-        if (contador == tweets.length) {
-            System.out.println("");
+     public void agregarTweet(String user, String tt, String date) {
+      tweets nuevoTweet= new tweets(user, tt, date);
+      
+          for (int j = 0; j < tweets.length; j++) {
+              if (tweets[j] == null) {
+                    tweets[j] = nuevoTweet;
+                    System.out.println("Se registro");
+                    return;
+                }
+          
+      }
+      JOptionPane.showMessageDialog(null,"No se registro");
+    }
+     
+     public tweets BuscarTweet(String Apodo) {
+        for (tweets tweet : tweets) {
+            if (tweet != null) {
+                return tweet;
+            }
         }
-        tweets[contador] = nuevoTweet; // Añadimos el nuevo objeto al arreglo
-        contador++;                         // Incrementamos el tamaño
+        return null;
     }
     
     

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto20242;
+package proyectoandru;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ public class tweets {
     private String user;
     private Date fecha;
 
-    public tweets(String user, String tweet) {
+    public tweets(String user, String tweet, String date) {
         this.user = user;
         this.tweet = tweet;
         this.fecha = new Date(); // Inicializa la fecha al momento de crear el tweet
